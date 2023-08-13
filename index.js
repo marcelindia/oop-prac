@@ -23,9 +23,19 @@ class User {
     this.email = email;
     this.name = name;
   }
+  //methods
+  login() {
+    console.log(this.email, "just logged in");
+  }
+  logout() {
+    console.log(this.email, "has logged out");
+  }
 }
 
 let userOne = new User("danny@ninjas.com", "Danny");
 let userTwo = new User("adam@ninjas.com", "Adam");
 console.log(userOne);
 console.log(userTwo);
+
+userOne.login();
+userTwo.logout();
