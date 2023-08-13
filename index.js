@@ -17,14 +17,14 @@
 // userOne.name = "Diana";
 // userOne.age = 27;
 
-//classes
+//---classes
 class User {
   constructor(email, name) {
     this.email = email;
     this.name = name;
     this.score = 0;
   }
-  //methods
+  //---methods
   login() {
     console.log(this.email, "just logged in");
     return this;
@@ -39,6 +39,14 @@ class User {
     return this;
   }
 }
+//---class inheritance
+class Admin extends User {
+  deleteUser(user) {
+    users = users.filter((u) => {
+      return u.email != user.email;
+    });
+  }
+}
 
 let userOne = new User("danny@ninjas.com", "Danny");
 let userTwo = new User("adam@ninjas.com", "Adam");
@@ -48,5 +56,13 @@ let userTwo = new User("adam@ninjas.com", "Adam");
 // userOne.login();
 // userTwo.logout();
 
-//method chaining
-userOne.login().updateScore().updateScore().logout();
+//---method chaining
+// userOne.login().updateScore().updateScore().logout();
+
+//----class inheritance cont.
+let users = [userOne, userTwo];
+let admin = new Admin("ana@ninjas.com", "ana");
+
+admin.deleteUser(userTwo);
+
+console.log(users);
